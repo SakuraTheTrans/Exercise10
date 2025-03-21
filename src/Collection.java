@@ -1,21 +1,22 @@
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Spliterator;
 import java.util.function.Consumer;
 
-public class ContactCollection implements Iterable{
+public class Collection implements Iterable<Contact>{
+
+    ArrayList<Contact> curContact = new ArrayList<>();
+
+    void addContact(Contact a) {
+        curContact.add(a);
+    }
 
     @Override
     public Iterator iterator() {
-        return null;
+        return curContact.iterator();
     }
 
     @Override
     public void forEach(Consumer action) {
-        Iterable.super.forEach(action);
-    }
-
-    @Override
-    public Spliterator spliterator() {
-        return Iterable.super.spliterator();
+        curContact.forEach(action);
     }
 }
